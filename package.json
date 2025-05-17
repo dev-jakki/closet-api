@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "prisma:migration": "npx prisma migrate dev --name init",
-    "start": "npm run prisma:migration && node index.js"
+    "start": "npm run prisma:migration && node index.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
