@@ -10,8 +10,8 @@
     "postinstall": "prisma generate"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jack",
+  "license": "MIT",
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.8.2",
