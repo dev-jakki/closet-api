@@ -18,7 +18,7 @@ router.get("/:id", async (req: Request, res: Response) => {
     const clothe = await prisma.clothe.findUnique({ where: { id_clothe: id } });
     clothe
       ? res.json(clothe)
-      : res.status(404).json({ error: "Clothe not found" });
+      : res.status(404).json({ error: "Vestimenta não encontrada!" });
   } catch (err) {
     res.status(500).json({
       message: "Opss! Ocorreu um erro ao obter esta vestimenta...",
@@ -69,8 +69,10 @@ router.put("/:id", async (req: Request, res: Response) => {
 router.delete("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
-    await prisma.clothe.delete({ where: { id_clothe: id } });
-    res.json({ message: "Clothe deletado com sucesso" });
+    const clothe = await prisma.clothe.delete({ where: { id_clothe: id } });
+    clothe
+      ? res.json({ message: "Vestimenta deletada com sucesso!" })
+      : res.status(404).json({ error: "Vestimenta não encontrada!" });
   } catch (err) {
     res
       .status(500)

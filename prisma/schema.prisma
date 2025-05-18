@@ -14,18 +14,10 @@ datasource db {
 }
 
 model Clothe {
-  id_clothe       String    @id @default(uuid())
-  description     String
-  image           String
-  favorite        Boolean
-  category        String
-  createdAt       DateTime  @default(now())
-}
-
-model Menu {
-  id_menu         Int      @id @default(autoincrement())
-  title           String
-  icon            String
-  url             String
-  id_menu_father     Int
+  id_clothe        String    @id @default(uuid())
+  description      String
+  image            String
+  favorite         Boolean
+  category         String
+  createdAt        DateTime  @default(now())
 }
