@@ -1,17 +1,18 @@
-import express from "express";
-import { PrismaClient } from "@prisma/client";
+const express = require('express');
+const { PrismaClient } = require('@prisma/client');
+import type { Request, Response } from 'express';
 
 const router = express.Router();
 const prisma = new PrismaClient();
 
 // GET all clothes
-router.get("/", async (req, res) => {
+router.get("/", async (req: Request, res: Response) => {
   const clothes = await prisma.clothe.findMany();
   res.json(clothes);
 });
 
 // GET one clothe
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const clothe = await prisma.clothe.findUnique({ where: { id_clothe: id } });
@@ -27,7 +28,7 @@ router.get("/:id", async (req, res) => {
 });
 
 // POST create clothe
-router.post("/", async (req, res) => {
+router.post("/", async (req: Request, res: Response) => {
   const { description, image, favorite, category } = req.body;
   try {
     const newClothe = await prisma.clothe.create({
@@ -45,7 +46,7 @@ router.post("/", async (req, res) => {
 });
 
 // PUT update clothe
-router.put("/:id", async (req, res) => {
+router.put("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   const { description, image, favorite, category } = req.body;
   try {
@@ -65,7 +66,7 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE clothe
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     await prisma.clothe.delete({ where: { id_clothe: id } });
@@ -80,4 +81,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

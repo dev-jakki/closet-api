@@ -1,7 +1,7 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import clothesRoutes from './routes/clothes.js';
+const express = require('express');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const clothesRoutes = require('./routes/clothes');
 
 dotenv.config();
 
