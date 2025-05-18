@@ -17,7 +17,7 @@ model Clothe {
   id_clothe       String    @id @default(uuid())
   description     String
   image           String
-  favorite        String
+  favorite        Boolean
   category        String
   createdAt       DateTime  @default(now())
 }
