@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "module": "commonjs",
-    "target": "es2016",
+    "module": "ESNext",
+    "target": "es5",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": "./src",                                  /* Specify the root folder within your source files. */
+    "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
     "esModuleInterop": true,
+    "baseUrl": "./src",
+    "skipLibCheck": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
