@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllClothes, getClotheToId, registerClothe, updateClothe, deleteClothe } from '../controllers/clothesController';
+import { getAllClothes, getClotheToId, registerClothe, updateClothe, deleteClothe } from '../controllers/clothesController.js';
 
 const router = express.Router();
 
