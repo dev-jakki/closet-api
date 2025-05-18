@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "module": "commonjs",                                /* Specify what module code is generated. */
+    "module": "ESNext",
+    "target": "ES2020",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "rootDir": "./",                                  /* Specify the root folder within your source files. */
     "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
-    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
-    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
-    "strict": true,                                      /* Enable all strict type-checking options. */
-
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "skipLibCheck": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
@@ -110,5 +112,6 @@
 
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-  }
+  },
+  "include": ["src"]
 }

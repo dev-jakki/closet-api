@@ -1,18 +1,14 @@
-const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 import type { Request, Response } from 'express';
 
-const router = express.Router();
 const prisma = new PrismaClient();
 
-// GET all clothes
-router.get("/", async (req: Request, res: Response) => {
+export const getAllClothes = async (req: Request, res: Response) => {
   const clothes = await prisma.clothe.findMany();
   res.json(clothes);
-});
+};
 
-// GET one clothe
-router.get("/:id", async (req: Request, res: Response) => {
+export const getClotheToId = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const clothe = await prisma.clothe.findUnique({ where: { id_clothe: id } });
@@ -25,10 +21,9 @@ router.get("/:id", async (req: Request, res: Response) => {
       error: err,
     });
   }
-});
+};
 
-// POST create clothe
-router.post("/", async (req: Request, res: Response) => {
+export const registerClothe = async (req: Request, res: Response) => {
   const { description, image, favorite, category } = req.body;
   try {
     const newClothe = await prisma.clothe.create({
@@ -43,10 +38,9 @@ router.post("/", async (req: Request, res: Response) => {
         error: err,
       });
   }
-});
+};
 
-// PUT update clothe
-router.put("/:id", async (req: Request, res: Response) => {
+export const updateClothe = async (req: Request, res: Response) => {
   const { id } = req.params;
   const { description, image, favorite, category } = req.body;
   try {
@@ -63,10 +57,9 @@ router.put("/:id", async (req: Request, res: Response) => {
         error: err,
       });
   }
-});
+};
 
-// DELETE clothe
-router.delete("/:id", async (req: Request, res: Response) => {
+export const deleteClothe = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const clothe = await prisma.clothe.delete({ where: { id_clothe: id } });
@@ -81,6 +74,4 @@ router.delete("/:id", async (req: Request, res: Response) => {
         error: err,
       });
   }
-});
-
-module.exports = router;
+};
