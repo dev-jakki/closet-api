@@ -1,6 +1,5 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
-app.use('/clothes', clothesRoutes);
 
 const router = express.Router();
 const prisma = new PrismaClient();
