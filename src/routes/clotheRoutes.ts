@@ -1,6 +1,6 @@
 import express from 'express';
 import { getAllClothes, getClotheToId, registerClothe, updateClothe, deleteClothe } from '../controllers/clothesController.js';
-import { authMiddleware } from 'controllers/authMiddleware.js';
+import { authMiddleware } from '../controllers/authMiddleware.js';
 
 const router = express.Router();
 
