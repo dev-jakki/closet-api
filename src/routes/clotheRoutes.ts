@@ -1,12 +1,13 @@
 import express from 'express';
 import { getAllClothes, getClotheToId, registerClothe, updateClothe, deleteClothe } from '../controllers/clothesController.js';
+import { authMiddleware } from 'controllers/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/clothes', getAllClothes);
-router.get('/clothes/:id', getClotheToId);
-router.get('/clothes', registerClothe);
-router.get('/clothes/:id', updateClothe);
-router.get('/clothes/:id', deleteClothe);
+router.get('/clothes', authMiddleware, getAllClothes);
+router.get('/clothes/:id', authMiddleware, getClotheToId);
+router.get('/clothes', authMiddleware, registerClothe);
+router.get('/clothes/:id', authMiddleware, updateClothe);
+router.get('/clothes/:id', authMiddleware, deleteClothe);
 
 export default router;
